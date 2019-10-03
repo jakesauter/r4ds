@@ -1,0 +1,235 @@
+---
+title: "Relational Data"
+author: "Jake Sauter"
+output: 
+  html_document:  
+    toc: true
+    toc_float: true
+    df_print: kable 
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE, 
+  warning = FALSE, 
+  message = FALSE,
+  hold = TRUE)
+
+library(knitr)
+library(kableExtra)
+
+kable <- function(data, ...) {
+  knitr::kable(data, digits=3, ...) %>% 
+    kable_styling(bootstrap_options = c('striped', 
+                                        'hover', 
+                                        'responsive'),
+                  full_width = FALSE, 
+                  position = 'center', )
+}
+
+knit_print.data.frame <- function(x, ...) {
+  res <- paste(c('', '', kable(head(x))), collapse = '\n')
+  asis_output(res)
+}
+
+registerS3method('knit_print', 'data.frame', knit_print.data.frame)
+```
+
+The study of **relational data** is very important in the field of 
+Data Science as very often complimenting data is stored in different
+tables or different datasets. 
+
+For this document we will use the `nycflights13` dataset to 
+showcase the power of **R** and **SQL**
+
+```{r libraries}
+library(tidyverse)
+library(nycflights13)
+```
+
+# The Data
+
+`airlines` shows us the full carrier name from its abbreviated code. 
+
+```{r}
+airlines 
+```
+
+`airports` gives us information about each airport, identified by the 
+`faa` airport code. 
+
+```{r}
+airports 
+```
+
+`planes` gives us information about each plane, identified by its `tailnum`
+
+```{r}
+planes 
+```
+
+`weather` gives the wather at each NYC airport for each hour. 
+
+```{r}
+weather 
+```
+
+These datasets are connected in many ways that we will see throughout 
+this document.
+
+# Keys
+
+A **primary** key uniquely identifies an observation in its own table. 
+An example of a primary key in the `planes` table woubl be the `tailnum`. 
+
+A **foreign** key uniquely identifies an observation in another table, 
+such as how `flights$tailnum` connects the `planes` table to the 
+`flights` table (we will look more at this soon). 
+
+A variable can both be a primary key **and** a foreign key. This can 
+be seen in the current dataset as `origin` is part of the weather 
+primary key, though also forms a relation between the `weather` table
+and the `airport` table. 
+
+Once we have identified primary keys in our tables, its good practice to 
+verify that they do indeed **uniquely** identify each observation. One 
+way to do this is to `count()` the primary keys.
+
+```{r}
+planes %>% 
+  count(tailnum) %>% 
+  filter(n > 1)
+
+weather %>% 
+  count(year, month, day, hour, origin) %>% 
+  filter(n > 1)
+```
+
+
+Sometimes a table does not have an explicit primary key: each row 
+is an observation but no combination of variables reliably identifies
+it. For example we would think that the `flight` or `tailnum` variable is the primary key of the `flights` table, though there are mulitple flights for each
+tailnumber a day.
+
+```{r}
+flights %>% 
+  count(year, month, day, flight) %>% 
+  filter(n > 1)
+```
+
+
+```{r}
+flights %>% 
+  count(year, month, day, tailnum) %>% 
+  filter(n > 1)
+```
+
+In cases such as this, if there is no reliable primary key the 
+best option might be to just make one. The key that we now
+assign as our reliable key is called the **surrogate key**. 
+
+# Mutating Joins
+
+A **mutating join** allows us to combine variables from two tables. 
+It first matches observations by their keys, then copies acroos variables
+from one table to the other. 
+
+```{r}
+(flights2 <- flights %>% 
+  select(year:day, hour, origin, dest, tailnum, carrier))
+```
+
+Imagine we want to add the full airline name to the `flights2` data, 
+we can combine the `airlines` and `flights2` tables with a `left_join()`. 
+
+```{r}
+flights2 %>% 
+  select(-origin, -dest) %>% 
+  left_join(airlines, by = 'carrier')
+```
+
+This results in the addition of the `name` variable to the `flights2`
+table. This is similar to using the following `mutate()` statement, 
+thus why we call this kind of join a **mutating join**. 
+
+```{r}
+flights2 %>% 
+  select(-origin, -dest) %>% 
+  mutate(name = airlines$name[match(carrier, airlines$carrier)])
+```
+
+# Inner Join
+
+```{r}
+(x <- tribble(
+  ~key, ~val_x,
+     1, "x1",
+     2, "x2",
+     3, "x3"
+))
+(y <- tribble(
+  ~key, ~val_y,
+     1, "y1",
+     2, "y2",
+     4, "y3"
+))
+```
+
+
+The simplest type of join in the **inner join**. To be precise this 
+should be called the inner **equijoin** because the keys are matched
+by the **equ**ality operator. 
+
+The output of an inner join is a table table that contains the key, 
+the x values and the y values. 
+
+
+```{r}
+x %>% 
+  inner_join(y, by = 'key')
+```
+
+
+# Outer joins
+
+An inner join keeps oberservation that appear in both tables. An 
+**outer join** keeps observations that appear in at least one 
+table. There are three types of outer joins being 
+
+* A **left join** keeps all observations in `x`
+* A **right join** keeps all observations in `y`
+* A **full join** keeps all observations in `x` and `y` 
+
+If **duplicate keys** exist in one table this can be useful
+such as in our airline name example, but if duplicate keys 
+exist in both tables this is most likely an error and most 
+querying engines will give **all possible combinations**, 
+defined by the **Cartesian product**. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

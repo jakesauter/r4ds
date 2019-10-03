@@ -1,0 +1,416 @@
+---
+title: "Data Wrangling"
+Author: "Jake Sauter"
+output:
+  html_document: 
+    toc: true
+    toc_float: true
+    df_print: kable
+---
+
+# Tibbles
+
+Tibbles *are* a `data.frame()`s, though have update functionality. They 
+handily *do not convert strings to factors by default*. They also have
+some better printing characteristics and easier formation practices.
+
+```{r libraries}
+library(tidyverse)
+```
+
+```{r as_tibble}
+as_tibble(iris)
+```
+
+```{r tibble_creation}
+tibble(
+  x = 1:5, 
+  y = 1, 
+  z = x^2 + y
+)
+```
+
+Its possible for a tibble to have column names that are not valid R variable
+names (non-syntatic names). These names are surrounded in backticks
+
+```{r special-col-names}
+tb <- tibble(
+  `:)` = 'smile', 
+  ` `  = 'space', 
+  `2000` = 'number'
+)
+```
+
+
+Another way to create a tibble is with `tribble()`, short for 
+**tr**anspose tibble. This function is is customised for data entry in
+code.
+
+```{r tribble}
+tribble(
+  ~x, ~y, ~z, 
+  'a', 2, 3.6, 
+  'b', 1, 8.5
+)
+```
+
+
+The two main differences in `tibble` and `data.frame` are printing and subsetting.
+
+## Printing
+
+Tibbles have a refined print method that shows only the first 10 rows by default, 
+along with all of the columns that fit on screen. 
+
+```{r tibble-types}
+tibble(
+  a = lubridate::now() + runif(1e3) * 86400, 
+  b = lubridate::today() + runif(1e3) * 30, 
+  c = 1:1e3,
+  d = runif(1e3),
+  e = sample(letters, 1e3, replace = TRUE)
+)
+```
+
+
+There are a few options that can allow more than the default 10 rows to be 
+printed.
+
+```{r inf-width-tibble-print}
+nycflights13::flights %>% 
+  print(n = 10, width = Inf)
+```
+
+
+The default print behavior can also be modified in the following way
+
+
+```{r tibble-options}
+options(tibble.print_max = 100, tibble.print_min = 3)
+```
+
+If a tibble has more than `100` rows, only `3` rows will be printed. 
+
+```{r inf-tibble-print-option}
+options(tibble.width = Inf)
+```
+
+Will always show all columns of tibbles.
+
+A complete list of options can be found in `package?tibble`
+
+
+We can also use RStudio's built-in data viewer to view tibbles.
+
+```{r}
+nycflights13::flights %>% 
+  view
+```
+
+
+## Subsetting
+
+We can use `$` and `[[` to extract data from a `data.frame`.
+
+```{r}
+df <- tibble(
+  x = runif(5),
+  y = rnorm(5)
+)
+
+# Extract by name
+df$x
+df[["x"]]
+
+
+# Extract by position
+df[[1]]
+```
+
+
+To use these extraction methods in a pipe, we can use the special `.` operator.
+
+```{r}
+df %>% .$x
+
+df %>% .[['x']]
+```
+
+
+Frustratingly some older code will not work with tibbles, and thus will need to use 
+`as.data.frame()` in order to convert our tibble back into a data.frame.
+
+```{r}
+class(df) %>% print
+class(as.data.frame(df)) %>% print
+```
+
+
+# Data Import
+
+`readr::read_csv()` will work similarly to `base::read.csv()` though will return
+a tibble
+
+
+```{r}
+library(microbenchmark)
+
+csv_file <- '~/Documents/R/give_me_credit/data/cs-training.csv'
+
+microbenchmark::microbenchmark(read.csv(csv_file), readr::read_csv(csv_file), times = 10)
+```
+
+This benchmark shows that `readr::read_csv()` takes *under half the time* as the `base::read.csv()` function, as 
+well as read_csv() not casting strings to factors and a tibble with previously described niceties returned.
+
+
+We can also specify inline csv to help in generating reproducible examples in R. 
+
+```{r}
+read_csv("a,b,c 
+          1,2,3 
+          4,5,6") %>% print
+
+tribble(~a, ~b, ~c, 
+         1,  2,  3, 
+         4,  5,  6) %>% print
+```
+
+
+Sometime we want to skip the first few lines of a file 
+
+```{r}
+read_csv("first line of metdata
+          second line of metadata
+          x, y, z
+          1, 2, 3", skip = 2)
+```
+
+
+Or we want to skip comments in a file that we have created.
+
+```{r}
+read_csv("#skip me, I'm a stupid comment, 
+          x, y, z
+          1, 2, 3", comment = "#")
+```
+
+If column names are not present in the file we can avoid using the first column as 
+column names in the following way. 
+
+```{r}
+read_csv('1,2,3 \n 4,5,6', col_names = FALSE)
+```
+
+Or we can provide our own column names to use (thus also setting `col_names = FALSE` by doing so. 
+
+```{r}
+read_csv('1,2,3\n4,5,6', col_names = c('x', 'y', 'z'))
+```
+
+We can also tweak the `na` argument, specifying sentinel values in the file. 
+
+```{r}
+read_csv('a,b,c\n1,2,.', na = '.')
+```
+
+Some reasons to use `readr` over base R. 
+
+* `readr` tends to be much quicker (~10x)
+* `readr` produces tibbles, doesn't convert strings to factors, use row names, 
+or change the column names if we want to. 
+* `readr` helps produce reproducible code as base R functions inherit some behaviour
+from the user's operating system.
+
+*Note*: If we are after raw speed `data.frame::fread()` can be quite fast though does 
+not fit into the tidyverse nearly as well as `readr` functions do 
+
+## Parsing a vector
+
+```{r}
+parse_logical(c('TRUE', 'FALSE', 'NA')) %>% str 
+
+parse_integer(c('1', '2', '3')) %>% str
+
+parse_date(c('2010-01-01', '1997-04-14')) %>% str
+```
+
+These parsers can be helpful on their own but are also the building blocks of `readr`. 
+
+Most functions in `readr` can take the arguments that we discussed earlier for `readr::read_csv()`
+
+
+```{r}
+parse_integer(c('1', '2', '3', '.'), na = '.') %>% str
+```
+
+If there is a parsing failure we will get a warning and all failures will be `NA`
+
+```{r}
+(x <- parse_integer(c('123', '345', 'abc', '123.45')))
+```
+
+If there are many parsing failures we will have to use the `problems()` function 
+to see all of the errors. 
+
+```{r}
+problems(x)
+```
+
+
+Useful for writing numbers in a natural way
+
+```{r}
+parse_number('$100') %>% str
+
+parse_number('20%') %>% str
+
+parse_number('It cost $123.45') %>% str
+
+parse_number('$123,432,323') %>% str
+```
+
+### Strings
+
+Strings can also be parsed in different ways that might prove useful. 
+
+```{r}
+charToRaw('Hadley')
+```
+
+This is the *ASCII* code or the *American* Standard Code for Information Interchange.
+
+
+
+```{r}
+x1 <- "El Ni\xf1o was particularly bad this year"
+x2 <- "\x82\xb1\x82\xf1\x82\xc9\x82\xbf\x82\xcd"
+
+parse_character(x1, locale = locale(encoding = "Latin1")) %>% str
+parse_character(x2, locale = locale(encoding = "Shift-JIS")) %>% str
+```
+
+
+So it is nice if we know the `locale` (aka the encoding scheme), but there
+might be times where we don't know this encoding scheme. Fortunately we can use the handy function
+`guess_encoding`
+
+```{r}
+guess_encoding(charToRaw(x1))
+```
+
+
+### Factors
+
+```{r}
+fruits <- c('apple', 'banana')
+
+parse_factor(c('apple', 'banana', 'bananana'), levels = fruit)
+```
+
+
+### Dates, date-times and times
+
+```{r}
+parse_datetime('2010-10-01T2010') %>% str
+
+parse_datetime('201001010') %>% str
+```
+
+```{r}
+parse_date('2010-10-01') %>% str
+```
+
+```{r}
+parse_time('01:10 am') %>% str
+
+parse_time('20:10:01') %>% str
+```
+
+
+We can also specify our own format if we want with the `%` format.
+
+
+```{r}
+parse_date("01/02/15", "%m/%d/%y") %>% str
+
+parse_date("01/02/15", "%d/%m/%y") %>% str
+
+parse_date("01/02/15", "%y/%m/%d") %>% str
+```
+
+
+## Writing to a file
+write_csv(df, 'df.csv')
+df2 <- read_csv('df.csv')
+
+df %>% print
+df2 %>% print
+```
+
+Though the type of information that you are writing is lost when you 
+write out to a csv.
+
+```{r}
+saveRDS(df, 'df.rds')
+df2 <- readRDS('df.rds')
+
+df %>% print
+df2 %>% print
+```
+
+
+So the *.rds* file type will save the R object in original form, though the `feather` package
+implements a fast binary file format that can be shared across programming languages.
+
+```{r}
+library(feather)
+
+write_feather(df, 'df.feather')
+
+df2 <- read_feather('df.feather')
+
+df %>% print
+df2 %>% print
+```
+
+
+Note that `haven` can read **SPSS** and **SAS** files. `readxl` reads **excel** files and `DBI` reads **sqlite** files.
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+df <- df %>% 
+  mutate(x = as.integer(x))
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

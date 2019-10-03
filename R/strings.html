@@ -2385,20 +2385,20 @@ library(stringr)</code></pre>
 <pre class="r"><code>x &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
 
 str_view(x, 'an')</code></pre>
-<div id="htmlwidget-8897d091c5166fb0532a" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8897d091c5166fb0532a">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9088398f577786b07f03" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9088398f577786b07f03">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><code>.</code> matches any character</p>
 <pre class="r"><code>str_view(x, '.a.')</code></pre>
-<div id="htmlwidget-021f28b69d6194d4272a" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-021f28b69d6194d4272a">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>p<span class='match'>ear<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-bcda37233f47f853ecdf" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bcda37233f47f853ecdf">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>p<span class='match'>ear<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>To match <code>.</code>, we need to preface it with a <code>\</code>, but <code>\</code> is also a special character so we need to escape it as well!</p>
 <pre class="r"><code>str_view('abc...', '\\.')</code></pre>
-<div id="htmlwidget-296ca1577ee8b9a1edf4" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-296ca1577ee8b9a1edf4">{"x":{"html":"<ul>\n  <li>abc<span class='match'>.<\/span>..<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f75fbca9559c1b7002b5" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f75fbca9559c1b7002b5">{"x":{"html":"<ul>\n  <li>abc<span class='match'>.<\/span>..<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>In order to match <code>\</code>, we first need to escape out escape, then need to do that again to form the literal.</p>
 <pre class="r"><code>str_view('a\\b', '\\\\')</code></pre>
-<div id="htmlwidget-f435cc737dc310c96410" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f435cc737dc310c96410">{"x":{"html":"<ul>\n  <li>a<span class='match'>\\<\/span>b<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8b43a8f4e509c9c49a1c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8b43a8f4e509c9c49a1c">{"x":{"html":"<ul>\n  <li>a<span class='match'>\\<\/span>b<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="anchors" class="section level1">
 <h1>Anchors</h1>
@@ -2409,17 +2409,17 @@ str_view(x, 'an')</code></pre>
 <pre class="r"><code>x  &lt;- c('apple', 'banana', 'pear')
 
 str_view(x, '^a')</code></pre>
-<div id="htmlwidget-19e300d0fd5159563389" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-19e300d0fd5159563389">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ee91656fca1deff0dc88" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ee91656fca1deff0dc88">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(x, 'a$')</code></pre>
-<div id="htmlwidget-09e2bdb95f3f6f993473" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-09e2bdb95f3f6f993473">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6adb586e5f594c6cf4f2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6adb586e5f594c6cf4f2">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>We can use both of these anchors to identify only complete strings.</p>
 <pre class="r"><code>x &lt;- c('apple pie', 'apple', 'apple cake')
 
 str_view(x, '^apple$')</code></pre>
-<div id="htmlwidget-93b2afe9d196e5d025e5" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-93b2afe9d196e5d025e5">{"x":{"html":"<ul>\n  <li>apple pie<\/li>\n  <li><span class='match'>apple<\/span><\/li>\n  <li>apple cake<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-07a650beec2f9dab3073" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-07a650beec2f9dab3073">{"x":{"html":"<ul>\n  <li>apple pie<\/li>\n  <li><span class='match'>apple<\/span><\/li>\n  <li>apple cake<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="classes-and-alternatives" class="section level1">
 <h1>Classes and Alternatives</h1>
@@ -2434,19 +2434,19 @@ str_view(x, '^apple$')</code></pre>
 <pre class="r"><code>x &lt;- c(&quot;abc&quot;, &quot;a.c&quot;, &quot;a*c&quot;, &quot;a c&quot;)
 
 str_view(x, 'a[.]c')</code></pre>
-<div id="htmlwidget-546ce9a58bf3b9aa2d65" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-546ce9a58bf3b9aa2d65">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li><span class='match'>a.c<\/span><\/li>\n  <li>a*c<\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-86f4c326397cf27527c4" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-86f4c326397cf27527c4">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li><span class='match'>a.c<\/span><\/li>\n  <li>a*c<\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(x, '.[*]c')</code></pre>
-<div id="htmlwidget-d3188c1e3ccf125dfe66" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d3188c1e3ccf125dfe66">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li><span class='match'>a*c<\/span><\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d24ab0a3a120b0a7fa3c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d24ab0a3a120b0a7fa3c">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li><span class='match'>a*c<\/span><\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(x, 'a[ ]')</code></pre>
-<div id="htmlwidget-6fe5feb68181edf1af9f" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6fe5feb68181edf1af9f">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li>a*c<\/li>\n  <li><span class='match'>a <\/span>c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e2f6f5f73317ed488f55" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e2f6f5f73317ed488f55">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li>a*c<\/li>\n  <li><span class='match'>a <\/span>c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>This works for most but not all regex characters. The exceptions include <code>]</code>, <code>\</code>, <code>^</code> and <code>-</code>.</p>
 <p>We can use alternation to pick between one or more alternative patterns.</p>
 <pre class="r"><code>str_view(c('gray', 'grey'), 'gr(e|a)y')</code></pre>
-<div id="htmlwidget-2a8cf6d672301190ca60" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2a8cf6d672301190ca60">{"x":{"html":"<ul>\n  <li><span class='match'>gray<\/span><\/li>\n  <li><span class='match'>grey<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-61ddad386cc695219278" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-61ddad386cc695219278">{"x":{"html":"<ul>\n  <li><span class='match'>gray<\/span><\/li>\n  <li><span class='match'>grey<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="repetition" class="section level1">
 <h1>Repetition</h1>
@@ -2458,11 +2458,11 @@ str_view(x, 'a[.]c')</code></pre>
 <pre class="r"><code>x &lt;- &quot;1888 is the longest year in Roman numerals: MDCCCLXXXVIII&quot;
 
 str_view(x, &quot;CC?&quot;)</code></pre>
-<div id="htmlwidget-636a63d53f3f658e1471" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-636a63d53f3f658e1471">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-935fdc569dcbf1958d9d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-935fdc569dcbf1958d9d">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(x, 'C[LX]+')</code></pre>
-<div id="htmlwidget-5e9cea5925e2d00e68bb" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5e9cea5925e2d00e68bb">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CLXXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9508afc426bb684e5db5" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9508afc426bb684e5db5">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CLXXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <ul>
 <li><code>{n}</code>: exactly n</li>
 <li><code>{n, }</code>: n or more</li>
@@ -2470,32 +2470,32 @@ str_view(x, &quot;CC?&quot;)</code></pre>
 <li><code>{n,m}</code> between n and m</li>
 </ul>
 <pre class="r"><code>str_view(x, 'C{2}')</code></pre>
-<div id="htmlwidget-f469d8f496eded54c239" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f469d8f496eded54c239">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a57bdf403ac8244dd215" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a57bdf403ac8244dd215">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(x, 'C{2,}')</code></pre>
-<div id="htmlwidget-271a2e55f1965b3f16cf" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-271a2e55f1965b3f16cf">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fc784ee2ce8a43db1c34" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fc784ee2ce8a43db1c34">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(x, 'C{2,3}')</code></pre>
-<div id="htmlwidget-f684d595bbc3de6d67d3" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f684d595bbc3de6d67d3">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-eb77743c919fbbb81a6e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-eb77743c919fbbb81a6e">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>By default these matches are “greedy” and will match the longest possible string. We can change this behavior to make matches “lazy” by putting a <code>?</code> after them.</p>
 <pre class="r"><code>str_view(x, 'C{2,3}?')</code></pre>
-<div id="htmlwidget-2cbad7314356f2ce75dd" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2cbad7314356f2ce75dd">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-dcafd6d9ea6e6df7bc0e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dcafd6d9ea6e6df7bc0e">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(x, 'C[LX]+?')</code></pre>
-<div id="htmlwidget-4d602e4996001dfe7571" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4d602e4996001dfe7571">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CL<\/span>XXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d2ed5ec5ac7b2ea16eaa" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d2ed5ec5ac7b2ea16eaa">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CL<\/span>XXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="grouping-and-backreferences" class="section level1">
 <h1>Grouping and backreferences</h1>
 <p>A numbered capture group. A capturing group stores the part of the string matches by the part of the regular expression inside of the parentheses. We can refer to the same test as previously matched by the capturing group with backrefereces, like <code>\1</code> and <code>\2</code>.</p>
 <p>For exampe if we want to find all fruits with repeated pairs of letters.</p>
 <pre class="r"><code>str_view(fruit, '(..)\\1', match = TRUE)</code></pre>
-<div id="htmlwidget-42fa511fbd8453a3e13f" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-42fa511fbd8453a3e13f">{"x":{"html":"<ul>\n  <li>b<span class='match'>anan<\/span>a<\/li>\n  <li><span class='match'>coco<\/span>nut<\/li>\n  <li><span class='match'>cucu<\/span>mber<\/li>\n  <li><span class='match'>juju<\/span>be<\/li>\n  <li><span class='match'>papa<\/span>ya<\/li>\n  <li>s<span class='match'>alal<\/span> berry<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f35feb93ced49008eeb2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f35feb93ced49008eeb2">{"x":{"html":"<ul>\n  <li>b<span class='match'>anan<\/span>a<\/li>\n  <li><span class='match'>coco<\/span>nut<\/li>\n  <li><span class='match'>cucu<\/span>mber<\/li>\n  <li><span class='match'>juju<\/span>be<\/li>\n  <li><span class='match'>papa<\/span>ya<\/li>\n  <li>s<span class='match'>alal<\/span> berry<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view('abaca', '(.).\\1.\\1')</code></pre>
-<div id="htmlwidget-a9b1ef9525043df7b634" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a9b1ef9525043df7b634">{"x":{"html":"<ul>\n  <li><span class='match'>abaca<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-90ffec2e5fa65b852436" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-90ffec2e5fa65b852436">{"x":{"html":"<ul>\n  <li><span class='match'>abaca<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="detect-matches" class="section level1">
 <h1>Detect matches</h1>
@@ -2506,8 +2506,8 @@ str_detect(x, 'e')</code></pre>
 <pre class="r"><code>sum(str_detect(words, '^t'))</code></pre>
 <pre><code>## [1] 65</code></pre>
 <pre class="r"><code>str_view(words, '[aeiou]$', match = TRUE)</code></pre>
-<div id="htmlwidget-4a9a0c5aae7a6770de56" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4a9a0c5aae7a6770de56">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span><\/li>\n  <li>abl<span class='match'>e<\/span><\/li>\n  <li>absolut<span class='match'>e<\/span><\/li>\n  <li>achiev<span class='match'>e<\/span><\/li>\n  <li>activ<span class='match'>e<\/span><\/li>\n  <li>advertis<span class='match'>e<\/span><\/li>\n  <li>ag<span class='match'>e<\/span><\/li>\n  <li>ag<span class='match'>o<\/span><\/li>\n  <li>agre<span class='match'>e<\/span><\/li>\n  <li>als<span class='match'>o<\/span><\/li>\n  <li>americ<span class='match'>a<\/span><\/li>\n  <li>appropriat<span class='match'>e<\/span><\/li>\n  <li>are<span class='match'>a<\/span><\/li>\n  <li>argu<span class='match'>e<\/span><\/li>\n  <li>arrang<span class='match'>e<\/span><\/li>\n  <li>associat<span class='match'>e<\/span><\/li>\n  <li>assum<span class='match'>e<\/span><\/li>\n  <li>availabl<span class='match'>e<\/span><\/li>\n  <li>awar<span class='match'>e<\/span><\/li>\n  <li>balanc<span class='match'>e<\/span><\/li>\n  <li>bas<span class='match'>e<\/span><\/li>\n  <li>b<span class='match'>e<\/span><\/li>\n  <li>becaus<span class='match'>e<\/span><\/li>\n  <li>becom<span class='match'>e<\/span><\/li>\n  <li>befor<span class='match'>e<\/span><\/li>\n  <li>believ<span class='match'>e<\/span><\/li>\n  <li>blok<span class='match'>e<\/span><\/li>\n  <li>blu<span class='match'>e<\/span><\/li>\n  <li>bottl<span class='match'>e<\/span><\/li>\n  <li>cak<span class='match'>e<\/span><\/li>\n  <li>car<span class='match'>e<\/span><\/li>\n  <li>cas<span class='match'>e<\/span><\/li>\n  <li>caus<span class='match'>e<\/span><\/li>\n  <li>centr<span class='match'>e<\/span><\/li>\n  <li>chanc<span class='match'>e<\/span><\/li>\n  <li>chang<span class='match'>e<\/span><\/li>\n  <li>charg<span class='match'>e<\/span><\/li>\n  <li>choic<span class='match'>e<\/span><\/li>\n  <li>choos<span class='match'>e<\/span><\/li>\n  <li>clos<span class='match'>e<\/span><\/li>\n  <li>cloth<span class='match'>e<\/span><\/li>\n  <li>coffe<span class='match'>e<\/span><\/li>\n  <li>colleagu<span class='match'>e<\/span><\/li>\n  <li>colleg<span class='match'>e<\/span><\/li>\n  <li>com<span class='match'>e<\/span><\/li>\n  <li>committe<span class='match'>e<\/span><\/li>\n  <li>compar<span class='match'>e<\/span><\/li>\n  <li>complet<span class='match'>e<\/span><\/li>\n  <li>comput<span class='match'>e<\/span><\/li>\n  <li>continu<span class='match'>e<\/span><\/li>\n  <li>convers<span class='match'>e<\/span><\/li>\n  <li>coupl<span class='match'>e<\/span><\/li>\n  <li>cours<span class='match'>e<\/span><\/li>\n  <li>creat<span class='match'>e<\/span><\/li>\n  <li>dat<span class='match'>e<\/span><\/li>\n  <li>debat<span class='match'>e<\/span><\/li>\n  <li>decid<span class='match'>e<\/span><\/li>\n  <li>definit<span class='match'>e<\/span><\/li>\n  <li>degre<span class='match'>e<\/span><\/li>\n  <li>describ<span class='match'>e<\/span><\/li>\n  <li>di<span class='match'>e<\/span><\/li>\n  <li>differenc<span class='match'>e<\/span><\/li>\n  <li>divid<span class='match'>e<\/span><\/li>\n  <li>d<span class='match'>o<\/span><\/li>\n  <li>doubl<span class='match'>e<\/span><\/li>\n  <li>driv<span class='match'>e<\/span><\/li>\n  <li>du<span class='match'>e<\/span><\/li>\n  <li>educat<span class='match'>e<\/span><\/li>\n  <li>els<span class='match'>e<\/span><\/li>\n  <li>encourag<span class='match'>e<\/span><\/li>\n  <li>engin<span class='match'>e<\/span><\/li>\n  <li>europ<span class='match'>e<\/span><\/li>\n  <li>evidenc<span class='match'>e<\/span><\/li>\n  <li>exampl<span class='match'>e<\/span><\/li>\n  <li>excus<span class='match'>e<\/span><\/li>\n  <li>exercis<span class='match'>e<\/span><\/li>\n  <li>expens<span class='match'>e<\/span><\/li>\n  <li>experienc<span class='match'>e<\/span><\/li>\n  <li>extr<span class='match'>a<\/span><\/li>\n  <li>ey<span class='match'>e<\/span><\/li>\n  <li>fac<span class='match'>e<\/span><\/li>\n  <li>figur<span class='match'>e<\/span><\/li>\n  <li>fil<span class='match'>e<\/span><\/li>\n  <li>financ<span class='match'>e<\/span><\/li>\n  <li>fin<span class='match'>e<\/span><\/li>\n  <li>fir<span class='match'>e<\/span><\/li>\n  <li>fiv<span class='match'>e<\/span><\/li>\n  <li>forc<span class='match'>e<\/span><\/li>\n  <li>fortun<span class='match'>e<\/span><\/li>\n  <li>franc<span class='match'>e<\/span><\/li>\n  <li>fre<span class='match'>e<\/span><\/li>\n  <li>futur<span class='match'>e<\/span><\/li>\n  <li>gam<span class='match'>e<\/span><\/li>\n  <li>giv<span class='match'>e<\/span><\/li>\n  <li>g<span class='match'>o<\/span><\/li>\n  <li>goodby<span class='match'>e<\/span><\/li>\n  <li>hat<span class='match'>e<\/span><\/li>\n  <li>hav<span class='match'>e<\/span><\/li>\n  <li>h<span class='match'>e<\/span><\/li>\n  <li>her<span class='match'>e<\/span><\/li>\n  <li>hom<span class='match'>e<\/span><\/li>\n  <li>hop<span class='match'>e<\/span><\/li>\n  <li>hors<span class='match'>e<\/span><\/li>\n  <li>hous<span class='match'>e<\/span><\/li>\n  <li>hull<span class='match'>o<\/span><\/li>\n  <li>ide<span class='match'>a<\/span><\/li>\n  <li>imagin<span class='match'>e<\/span><\/li>\n  <li>improv<span class='match'>e<\/span><\/li>\n  <li>includ<span class='match'>e<\/span><\/li>\n  <li>incom<span class='match'>e<\/span><\/li>\n  <li>increas<span class='match'>e<\/span><\/li>\n  <li>insid<span class='match'>e<\/span><\/li>\n  <li>insur<span class='match'>e<\/span><\/li>\n  <li>int<span class='match'>o<\/span><\/li>\n  <li>introduc<span class='match'>e<\/span><\/li>\n  <li>involv<span class='match'>e<\/span><\/li>\n  <li>issu<span class='match'>e<\/span><\/li>\n  <li>judg<span class='match'>e<\/span><\/li>\n  <li>languag<span class='match'>e<\/span><\/li>\n  <li>larg<span class='match'>e<\/span><\/li>\n  <li>lat<span class='match'>e<\/span><\/li>\n  <li>leav<span class='match'>e<\/span><\/li>\n  <li>li<span class='match'>e<\/span><\/li>\n  <li>lif<span class='match'>e<\/span><\/li>\n  <li>lik<span class='match'>e<\/span><\/li>\n  <li>lin<span class='match'>e<\/span><\/li>\n  <li>littl<span class='match'>e<\/span><\/li>\n  <li>liv<span class='match'>e<\/span><\/li>\n  <li>los<span class='match'>e<\/span><\/li>\n  <li>lov<span class='match'>e<\/span><\/li>\n  <li>machin<span class='match'>e<\/span><\/li>\n  <li>mak<span class='match'>e<\/span><\/li>\n  <li>manag<span class='match'>e<\/span><\/li>\n  <li>mayb<span class='match'>e<\/span><\/li>\n  <li>measur<span class='match'>e<\/span><\/li>\n  <li>middl<span class='match'>e<\/span><\/li>\n  <li>mil<span class='match'>e<\/span><\/li>\n  <li>minut<span class='match'>e<\/span><\/li>\n  <li>mor<span class='match'>e<\/span><\/li>\n  <li>mov<span class='match'>e<\/span><\/li>\n  <li>nam<span class='match'>e<\/span><\/li>\n  <li>natur<span class='match'>e<\/span><\/li>\n  <li>nic<span class='match'>e<\/span><\/li>\n  <li>nin<span class='match'>e<\/span><\/li>\n  <li>n<span class='match'>o<\/span><\/li>\n  <li>non<span class='match'>e<\/span><\/li>\n  <li>not<span class='match'>e<\/span><\/li>\n  <li>notic<span class='match'>e<\/span><\/li>\n  <li>offic<span class='match'>e<\/span><\/li>\n  <li>onc<span class='match'>e<\/span><\/li>\n  <li>on<span class='match'>e<\/span><\/li>\n  <li>operat<span class='match'>e<\/span><\/li>\n  <li>oppos<span class='match'>e<\/span><\/li>\n  <li>organiz<span class='match'>e<\/span><\/li>\n  <li>otherwis<span class='match'>e<\/span><\/li>\n  <li>pag<span class='match'>e<\/span><\/li>\n  <li>penc<span class='match'>e<\/span><\/li>\n  <li>peopl<span class='match'>e<\/span><\/li>\n  <li>pictur<span class='match'>e<\/span><\/li>\n  <li>piec<span class='match'>e<\/span><\/li>\n  <li>plac<span class='match'>e<\/span><\/li>\n  <li>pleas<span class='match'>e<\/span><\/li>\n  <li>polic<span class='match'>e<\/span><\/li>\n  <li>positiv<span class='match'>e<\/span><\/li>\n  <li>possibl<span class='match'>e<\/span><\/li>\n  <li>practis<span class='match'>e<\/span><\/li>\n  <li>prepar<span class='match'>e<\/span><\/li>\n  <li>pressur<span class='match'>e<\/span><\/li>\n  <li>presum<span class='match'>e<\/span><\/li>\n  <li>pric<span class='match'>e<\/span><\/li>\n  <li>privat<span class='match'>e<\/span><\/li>\n  <li>probabl<span class='match'>e<\/span><\/li>\n  <li>produc<span class='match'>e<\/span><\/li>\n  <li>programm<span class='match'>e<\/span><\/li>\n  <li>propos<span class='match'>e<\/span><\/li>\n  <li>provid<span class='match'>e<\/span><\/li>\n  <li>purpos<span class='match'>e<\/span><\/li>\n  <li>quit<span class='match'>e<\/span><\/li>\n  <li>radi<span class='match'>o<\/span><\/li>\n  <li>rais<span class='match'>e<\/span><\/li>\n  <li>rang<span class='match'>e<\/span><\/li>\n  <li>rat<span class='match'>e<\/span><\/li>\n  <li>realis<span class='match'>e<\/span><\/li>\n  <li>receiv<span class='match'>e<\/span><\/li>\n  <li>recogniz<span class='match'>e<\/span><\/li>\n  <li>reduc<span class='match'>e<\/span><\/li>\n  <li>requir<span class='match'>e<\/span><\/li>\n  <li>resourc<span class='match'>e<\/span><\/li>\n  <li>responsibl<span class='match'>e<\/span><\/li>\n  <li>ris<span class='match'>e<\/span><\/li>\n  <li>rol<span class='match'>e<\/span><\/li>\n  <li>rul<span class='match'>e<\/span><\/li>\n  <li>saf<span class='match'>e<\/span><\/li>\n  <li>sal<span class='match'>e<\/span><\/li>\n  <li>sam<span class='match'>e<\/span><\/li>\n  <li>sav<span class='match'>e<\/span><\/li>\n  <li>schem<span class='match'>e<\/span><\/li>\n  <li>scienc<span class='match'>e<\/span><\/li>\n  <li>scor<span class='match'>e<\/span><\/li>\n  <li>secur<span class='match'>e<\/span><\/li>\n  <li>se<span class='match'>e<\/span><\/li>\n  <li>sens<span class='match'>e<\/span><\/li>\n  <li>separat<span class='match'>e<\/span><\/li>\n  <li>serv<span class='match'>e<\/span><\/li>\n  <li>servic<span class='match'>e<\/span><\/li>\n  <li>settl<span class='match'>e<\/span><\/li>\n  <li>shar<span class='match'>e<\/span><\/li>\n  <li>sh<span class='match'>e<\/span><\/li>\n  <li>sho<span class='match'>e<\/span><\/li>\n  <li>sid<span class='match'>e<\/span><\/li>\n  <li>simpl<span class='match'>e<\/span><\/li>\n  <li>sinc<span class='match'>e<\/span><\/li>\n  <li>singl<span class='match'>e<\/span><\/li>\n  <li>sit<span class='match'>e<\/span><\/li>\n  <li>situat<span class='match'>e<\/span><\/li>\n  <li>siz<span class='match'>e<\/span><\/li>\n  <li>smok<span class='match'>e<\/span><\/li>\n  <li>s<span class='match'>o<\/span><\/li>\n  <li>som<span class='match'>e<\/span><\/li>\n  <li>spac<span class='match'>e<\/span><\/li>\n  <li>squar<span class='match'>e<\/span><\/li>\n  <li>stag<span class='match'>e<\/span><\/li>\n  <li>stat<span class='match'>e<\/span><\/li>\n  <li>strik<span class='match'>e<\/span><\/li>\n  <li>structur<span class='match'>e<\/span><\/li>\n  <li>suppos<span class='match'>e<\/span><\/li>\n  <li>sur<span class='match'>e<\/span><\/li>\n  <li>surpris<span class='match'>e<\/span><\/li>\n  <li>tabl<span class='match'>e<\/span><\/li>\n  <li>tak<span class='match'>e<\/span><\/li>\n  <li>tap<span class='match'>e<\/span><\/li>\n  <li>te<span class='match'>a<\/span><\/li>\n  <li>telephon<span class='match'>e<\/span><\/li>\n  <li>terribl<span class='match'>e<\/span><\/li>\n  <li>th<span class='match'>e<\/span><\/li>\n  <li>ther<span class='match'>e<\/span><\/li>\n  <li>therefor<span class='match'>e<\/span><\/li>\n  <li>tho<span class='match'>u<\/span><\/li>\n  <li>thre<span class='match'>e<\/span><\/li>\n  <li>ti<span class='match'>e<\/span><\/li>\n  <li>tim<span class='match'>e<\/span><\/li>\n  <li>t<span class='match'>o<\/span><\/li>\n  <li>to<span class='match'>o<\/span><\/li>\n  <li>trad<span class='match'>e<\/span><\/li>\n  <li>tre<span class='match'>e<\/span><\/li>\n  <li>troubl<span class='match'>e<\/span><\/li>\n  <li>tru<span class='match'>e<\/span><\/li>\n  <li>twelv<span class='match'>e<\/span><\/li>\n  <li>tw<span class='match'>o<\/span><\/li>\n  <li>typ<span class='match'>e<\/span><\/li>\n  <li>unit<span class='match'>e<\/span><\/li>\n  <li>us<span class='match'>e<\/span><\/li>\n  <li>valu<span class='match'>e<\/span><\/li>\n  <li>vide<span class='match'>o<\/span><\/li>\n  <li>villag<span class='match'>e<\/span><\/li>\n  <li>vot<span class='match'>e<\/span><\/li>\n  <li>wag<span class='match'>e<\/span><\/li>\n  <li>wast<span class='match'>e<\/span><\/li>\n  <li>w<span class='match'>e<\/span><\/li>\n  <li>we<span class='match'>e<\/span><\/li>\n  <li>welcom<span class='match'>e<\/span><\/li>\n  <li>wher<span class='match'>e<\/span><\/li>\n  <li>whil<span class='match'>e<\/span><\/li>\n  <li>whit<span class='match'>e<\/span><\/li>\n  <li>wh<span class='match'>o<\/span><\/li>\n  <li>whol<span class='match'>e<\/span><\/li>\n  <li>wid<span class='match'>e<\/span><\/li>\n  <li>wif<span class='match'>e<\/span><\/li>\n  <li>wors<span class='match'>e<\/span><\/li>\n  <li>writ<span class='match'>e<\/span><\/li>\n  <li>yo<span class='match'>u<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9b252fa816e62cf8e0c0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9b252fa816e62cf8e0c0">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span><\/li>\n  <li>abl<span class='match'>e<\/span><\/li>\n  <li>absolut<span class='match'>e<\/span><\/li>\n  <li>achiev<span class='match'>e<\/span><\/li>\n  <li>activ<span class='match'>e<\/span><\/li>\n  <li>advertis<span class='match'>e<\/span><\/li>\n  <li>ag<span class='match'>e<\/span><\/li>\n  <li>ag<span class='match'>o<\/span><\/li>\n  <li>agre<span class='match'>e<\/span><\/li>\n  <li>als<span class='match'>o<\/span><\/li>\n  <li>americ<span class='match'>a<\/span><\/li>\n  <li>appropriat<span class='match'>e<\/span><\/li>\n  <li>are<span class='match'>a<\/span><\/li>\n  <li>argu<span class='match'>e<\/span><\/li>\n  <li>arrang<span class='match'>e<\/span><\/li>\n  <li>associat<span class='match'>e<\/span><\/li>\n  <li>assum<span class='match'>e<\/span><\/li>\n  <li>availabl<span class='match'>e<\/span><\/li>\n  <li>awar<span class='match'>e<\/span><\/li>\n  <li>balanc<span class='match'>e<\/span><\/li>\n  <li>bas<span class='match'>e<\/span><\/li>\n  <li>b<span class='match'>e<\/span><\/li>\n  <li>becaus<span class='match'>e<\/span><\/li>\n  <li>becom<span class='match'>e<\/span><\/li>\n  <li>befor<span class='match'>e<\/span><\/li>\n  <li>believ<span class='match'>e<\/span><\/li>\n  <li>blok<span class='match'>e<\/span><\/li>\n  <li>blu<span class='match'>e<\/span><\/li>\n  <li>bottl<span class='match'>e<\/span><\/li>\n  <li>cak<span class='match'>e<\/span><\/li>\n  <li>car<span class='match'>e<\/span><\/li>\n  <li>cas<span class='match'>e<\/span><\/li>\n  <li>caus<span class='match'>e<\/span><\/li>\n  <li>centr<span class='match'>e<\/span><\/li>\n  <li>chanc<span class='match'>e<\/span><\/li>\n  <li>chang<span class='match'>e<\/span><\/li>\n  <li>charg<span class='match'>e<\/span><\/li>\n  <li>choic<span class='match'>e<\/span><\/li>\n  <li>choos<span class='match'>e<\/span><\/li>\n  <li>clos<span class='match'>e<\/span><\/li>\n  <li>cloth<span class='match'>e<\/span><\/li>\n  <li>coffe<span class='match'>e<\/span><\/li>\n  <li>colleagu<span class='match'>e<\/span><\/li>\n  <li>colleg<span class='match'>e<\/span><\/li>\n  <li>com<span class='match'>e<\/span><\/li>\n  <li>committe<span class='match'>e<\/span><\/li>\n  <li>compar<span class='match'>e<\/span><\/li>\n  <li>complet<span class='match'>e<\/span><\/li>\n  <li>comput<span class='match'>e<\/span><\/li>\n  <li>continu<span class='match'>e<\/span><\/li>\n  <li>convers<span class='match'>e<\/span><\/li>\n  <li>coupl<span class='match'>e<\/span><\/li>\n  <li>cours<span class='match'>e<\/span><\/li>\n  <li>creat<span class='match'>e<\/span><\/li>\n  <li>dat<span class='match'>e<\/span><\/li>\n  <li>debat<span class='match'>e<\/span><\/li>\n  <li>decid<span class='match'>e<\/span><\/li>\n  <li>definit<span class='match'>e<\/span><\/li>\n  <li>degre<span class='match'>e<\/span><\/li>\n  <li>describ<span class='match'>e<\/span><\/li>\n  <li>di<span class='match'>e<\/span><\/li>\n  <li>differenc<span class='match'>e<\/span><\/li>\n  <li>divid<span class='match'>e<\/span><\/li>\n  <li>d<span class='match'>o<\/span><\/li>\n  <li>doubl<span class='match'>e<\/span><\/li>\n  <li>driv<span class='match'>e<\/span><\/li>\n  <li>du<span class='match'>e<\/span><\/li>\n  <li>educat<span class='match'>e<\/span><\/li>\n  <li>els<span class='match'>e<\/span><\/li>\n  <li>encourag<span class='match'>e<\/span><\/li>\n  <li>engin<span class='match'>e<\/span><\/li>\n  <li>europ<span class='match'>e<\/span><\/li>\n  <li>evidenc<span class='match'>e<\/span><\/li>\n  <li>exampl<span class='match'>e<\/span><\/li>\n  <li>excus<span class='match'>e<\/span><\/li>\n  <li>exercis<span class='match'>e<\/span><\/li>\n  <li>expens<span class='match'>e<\/span><\/li>\n  <li>experienc<span class='match'>e<\/span><\/li>\n  <li>extr<span class='match'>a<\/span><\/li>\n  <li>ey<span class='match'>e<\/span><\/li>\n  <li>fac<span class='match'>e<\/span><\/li>\n  <li>figur<span class='match'>e<\/span><\/li>\n  <li>fil<span class='match'>e<\/span><\/li>\n  <li>financ<span class='match'>e<\/span><\/li>\n  <li>fin<span class='match'>e<\/span><\/li>\n  <li>fir<span class='match'>e<\/span><\/li>\n  <li>fiv<span class='match'>e<\/span><\/li>\n  <li>forc<span class='match'>e<\/span><\/li>\n  <li>fortun<span class='match'>e<\/span><\/li>\n  <li>franc<span class='match'>e<\/span><\/li>\n  <li>fre<span class='match'>e<\/span><\/li>\n  <li>futur<span class='match'>e<\/span><\/li>\n  <li>gam<span class='match'>e<\/span><\/li>\n  <li>giv<span class='match'>e<\/span><\/li>\n  <li>g<span class='match'>o<\/span><\/li>\n  <li>goodby<span class='match'>e<\/span><\/li>\n  <li>hat<span class='match'>e<\/span><\/li>\n  <li>hav<span class='match'>e<\/span><\/li>\n  <li>h<span class='match'>e<\/span><\/li>\n  <li>her<span class='match'>e<\/span><\/li>\n  <li>hom<span class='match'>e<\/span><\/li>\n  <li>hop<span class='match'>e<\/span><\/li>\n  <li>hors<span class='match'>e<\/span><\/li>\n  <li>hous<span class='match'>e<\/span><\/li>\n  <li>hull<span class='match'>o<\/span><\/li>\n  <li>ide<span class='match'>a<\/span><\/li>\n  <li>imagin<span class='match'>e<\/span><\/li>\n  <li>improv<span class='match'>e<\/span><\/li>\n  <li>includ<span class='match'>e<\/span><\/li>\n  <li>incom<span class='match'>e<\/span><\/li>\n  <li>increas<span class='match'>e<\/span><\/li>\n  <li>insid<span class='match'>e<\/span><\/li>\n  <li>insur<span class='match'>e<\/span><\/li>\n  <li>int<span class='match'>o<\/span><\/li>\n  <li>introduc<span class='match'>e<\/span><\/li>\n  <li>involv<span class='match'>e<\/span><\/li>\n  <li>issu<span class='match'>e<\/span><\/li>\n  <li>judg<span class='match'>e<\/span><\/li>\n  <li>languag<span class='match'>e<\/span><\/li>\n  <li>larg<span class='match'>e<\/span><\/li>\n  <li>lat<span class='match'>e<\/span><\/li>\n  <li>leav<span class='match'>e<\/span><\/li>\n  <li>li<span class='match'>e<\/span><\/li>\n  <li>lif<span class='match'>e<\/span><\/li>\n  <li>lik<span class='match'>e<\/span><\/li>\n  <li>lin<span class='match'>e<\/span><\/li>\n  <li>littl<span class='match'>e<\/span><\/li>\n  <li>liv<span class='match'>e<\/span><\/li>\n  <li>los<span class='match'>e<\/span><\/li>\n  <li>lov<span class='match'>e<\/span><\/li>\n  <li>machin<span class='match'>e<\/span><\/li>\n  <li>mak<span class='match'>e<\/span><\/li>\n  <li>manag<span class='match'>e<\/span><\/li>\n  <li>mayb<span class='match'>e<\/span><\/li>\n  <li>measur<span class='match'>e<\/span><\/li>\n  <li>middl<span class='match'>e<\/span><\/li>\n  <li>mil<span class='match'>e<\/span><\/li>\n  <li>minut<span class='match'>e<\/span><\/li>\n  <li>mor<span class='match'>e<\/span><\/li>\n  <li>mov<span class='match'>e<\/span><\/li>\n  <li>nam<span class='match'>e<\/span><\/li>\n  <li>natur<span class='match'>e<\/span><\/li>\n  <li>nic<span class='match'>e<\/span><\/li>\n  <li>nin<span class='match'>e<\/span><\/li>\n  <li>n<span class='match'>o<\/span><\/li>\n  <li>non<span class='match'>e<\/span><\/li>\n  <li>not<span class='match'>e<\/span><\/li>\n  <li>notic<span class='match'>e<\/span><\/li>\n  <li>offic<span class='match'>e<\/span><\/li>\n  <li>onc<span class='match'>e<\/span><\/li>\n  <li>on<span class='match'>e<\/span><\/li>\n  <li>operat<span class='match'>e<\/span><\/li>\n  <li>oppos<span class='match'>e<\/span><\/li>\n  <li>organiz<span class='match'>e<\/span><\/li>\n  <li>otherwis<span class='match'>e<\/span><\/li>\n  <li>pag<span class='match'>e<\/span><\/li>\n  <li>penc<span class='match'>e<\/span><\/li>\n  <li>peopl<span class='match'>e<\/span><\/li>\n  <li>pictur<span class='match'>e<\/span><\/li>\n  <li>piec<span class='match'>e<\/span><\/li>\n  <li>plac<span class='match'>e<\/span><\/li>\n  <li>pleas<span class='match'>e<\/span><\/li>\n  <li>polic<span class='match'>e<\/span><\/li>\n  <li>positiv<span class='match'>e<\/span><\/li>\n  <li>possibl<span class='match'>e<\/span><\/li>\n  <li>practis<span class='match'>e<\/span><\/li>\n  <li>prepar<span class='match'>e<\/span><\/li>\n  <li>pressur<span class='match'>e<\/span><\/li>\n  <li>presum<span class='match'>e<\/span><\/li>\n  <li>pric<span class='match'>e<\/span><\/li>\n  <li>privat<span class='match'>e<\/span><\/li>\n  <li>probabl<span class='match'>e<\/span><\/li>\n  <li>produc<span class='match'>e<\/span><\/li>\n  <li>programm<span class='match'>e<\/span><\/li>\n  <li>propos<span class='match'>e<\/span><\/li>\n  <li>provid<span class='match'>e<\/span><\/li>\n  <li>purpos<span class='match'>e<\/span><\/li>\n  <li>quit<span class='match'>e<\/span><\/li>\n  <li>radi<span class='match'>o<\/span><\/li>\n  <li>rais<span class='match'>e<\/span><\/li>\n  <li>rang<span class='match'>e<\/span><\/li>\n  <li>rat<span class='match'>e<\/span><\/li>\n  <li>realis<span class='match'>e<\/span><\/li>\n  <li>receiv<span class='match'>e<\/span><\/li>\n  <li>recogniz<span class='match'>e<\/span><\/li>\n  <li>reduc<span class='match'>e<\/span><\/li>\n  <li>requir<span class='match'>e<\/span><\/li>\n  <li>resourc<span class='match'>e<\/span><\/li>\n  <li>responsibl<span class='match'>e<\/span><\/li>\n  <li>ris<span class='match'>e<\/span><\/li>\n  <li>rol<span class='match'>e<\/span><\/li>\n  <li>rul<span class='match'>e<\/span><\/li>\n  <li>saf<span class='match'>e<\/span><\/li>\n  <li>sal<span class='match'>e<\/span><\/li>\n  <li>sam<span class='match'>e<\/span><\/li>\n  <li>sav<span class='match'>e<\/span><\/li>\n  <li>schem<span class='match'>e<\/span><\/li>\n  <li>scienc<span class='match'>e<\/span><\/li>\n  <li>scor<span class='match'>e<\/span><\/li>\n  <li>secur<span class='match'>e<\/span><\/li>\n  <li>se<span class='match'>e<\/span><\/li>\n  <li>sens<span class='match'>e<\/span><\/li>\n  <li>separat<span class='match'>e<\/span><\/li>\n  <li>serv<span class='match'>e<\/span><\/li>\n  <li>servic<span class='match'>e<\/span><\/li>\n  <li>settl<span class='match'>e<\/span><\/li>\n  <li>shar<span class='match'>e<\/span><\/li>\n  <li>sh<span class='match'>e<\/span><\/li>\n  <li>sho<span class='match'>e<\/span><\/li>\n  <li>sid<span class='match'>e<\/span><\/li>\n  <li>simpl<span class='match'>e<\/span><\/li>\n  <li>sinc<span class='match'>e<\/span><\/li>\n  <li>singl<span class='match'>e<\/span><\/li>\n  <li>sit<span class='match'>e<\/span><\/li>\n  <li>situat<span class='match'>e<\/span><\/li>\n  <li>siz<span class='match'>e<\/span><\/li>\n  <li>smok<span class='match'>e<\/span><\/li>\n  <li>s<span class='match'>o<\/span><\/li>\n  <li>som<span class='match'>e<\/span><\/li>\n  <li>spac<span class='match'>e<\/span><\/li>\n  <li>squar<span class='match'>e<\/span><\/li>\n  <li>stag<span class='match'>e<\/span><\/li>\n  <li>stat<span class='match'>e<\/span><\/li>\n  <li>strik<span class='match'>e<\/span><\/li>\n  <li>structur<span class='match'>e<\/span><\/li>\n  <li>suppos<span class='match'>e<\/span><\/li>\n  <li>sur<span class='match'>e<\/span><\/li>\n  <li>surpris<span class='match'>e<\/span><\/li>\n  <li>tabl<span class='match'>e<\/span><\/li>\n  <li>tak<span class='match'>e<\/span><\/li>\n  <li>tap<span class='match'>e<\/span><\/li>\n  <li>te<span class='match'>a<\/span><\/li>\n  <li>telephon<span class='match'>e<\/span><\/li>\n  <li>terribl<span class='match'>e<\/span><\/li>\n  <li>th<span class='match'>e<\/span><\/li>\n  <li>ther<span class='match'>e<\/span><\/li>\n  <li>therefor<span class='match'>e<\/span><\/li>\n  <li>tho<span class='match'>u<\/span><\/li>\n  <li>thre<span class='match'>e<\/span><\/li>\n  <li>ti<span class='match'>e<\/span><\/li>\n  <li>tim<span class='match'>e<\/span><\/li>\n  <li>t<span class='match'>o<\/span><\/li>\n  <li>to<span class='match'>o<\/span><\/li>\n  <li>trad<span class='match'>e<\/span><\/li>\n  <li>tre<span class='match'>e<\/span><\/li>\n  <li>troubl<span class='match'>e<\/span><\/li>\n  <li>tru<span class='match'>e<\/span><\/li>\n  <li>twelv<span class='match'>e<\/span><\/li>\n  <li>tw<span class='match'>o<\/span><\/li>\n  <li>typ<span class='match'>e<\/span><\/li>\n  <li>unit<span class='match'>e<\/span><\/li>\n  <li>us<span class='match'>e<\/span><\/li>\n  <li>valu<span class='match'>e<\/span><\/li>\n  <li>vide<span class='match'>o<\/span><\/li>\n  <li>villag<span class='match'>e<\/span><\/li>\n  <li>vot<span class='match'>e<\/span><\/li>\n  <li>wag<span class='match'>e<\/span><\/li>\n  <li>wast<span class='match'>e<\/span><\/li>\n  <li>w<span class='match'>e<\/span><\/li>\n  <li>we<span class='match'>e<\/span><\/li>\n  <li>welcom<span class='match'>e<\/span><\/li>\n  <li>wher<span class='match'>e<\/span><\/li>\n  <li>whil<span class='match'>e<\/span><\/li>\n  <li>whit<span class='match'>e<\/span><\/li>\n  <li>wh<span class='match'>o<\/span><\/li>\n  <li>whol<span class='match'>e<\/span><\/li>\n  <li>wid<span class='match'>e<\/span><\/li>\n  <li>wif<span class='match'>e<\/span><\/li>\n  <li>wors<span class='match'>e<\/span><\/li>\n  <li>writ<span class='match'>e<\/span><\/li>\n  <li>yo<span class='match'>u<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>mean(str_detect(words, '[aeiou]$'))</code></pre>
 <pre><code>## [1] 0.2765306</code></pre>
 <p>Sometimes we may want to use multipe statements if we are trying to match a complex statement</p>
@@ -2699,8 +2699,8 @@ account
 <pre class="r"><code>str_count('abababa', 'aba')</code></pre>
 <pre><code>## [1] 2</code></pre>
 <pre class="r"><code>str_view_all('abababa', 'aba')</code></pre>
-<div id="htmlwidget-1f18185b0361b5415c26" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1f18185b0361b5415c26">{"x":{"html":"<ul>\n  <li><span class='match'>aba<\/span>b<span class='match'>aba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-00ac0571494444878a19" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-00ac0571494444878a19">{"x":{"html":"<ul>\n  <li><span class='match'>aba<\/span>b<span class='match'>aba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Also take note here of the <code>_all</code> suffix. Most functions in <code>stringr</code> come in a singular version, and an <code>_all</code> version.</p>
 </div>
 <div id="extract-matches" class="section level1">
@@ -2733,8 +2733,8 @@ matches &lt;- str_extract(has_color, color_match)</code></pre>
 ## [57] &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;</code></pre>
 <pre class="r"><code>more &lt;- sentences[str_count(sentences, color_match) &gt; 1]
 str_view_all(more, color_match)</code></pre>
-<div id="htmlwidget-73babfea3e8b33010f48" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-73babfea3e8b33010f48">{"x":{"html":"<ul>\n  <li>It is hard to erase <span class='match'>blue<\/span> or <span class='match'>red<\/span> ink.<\/li>\n  <li>The <span class='match'>green<\/span> light in the brown box flicke<span class='match'>red<\/span>.<\/li>\n  <li>The sky in the west is tinged with <span class='match'>orange<\/span> <span class='match'>red<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3c6671eb017202b97fd3" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3c6671eb017202b97fd3">{"x":{"html":"<ul>\n  <li>It is hard to erase <span class='match'>blue<\/span> or <span class='match'>red<\/span> ink.<\/li>\n  <li>The <span class='match'>green<\/span> light in the brown box flicke<span class='match'>red<\/span>.<\/li>\n  <li>The sky in the west is tinged with <span class='match'>orange<\/span> <span class='match'>red<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_extract_all(more, color_match)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;blue&quot; &quot;red&quot; 
@@ -2945,8 +2945,8 @@ fields %&gt;% str_split(': ', n = 1, simplify = TRUE)</code></pre>
 <pre class="r"><code>x &lt;- 'This is a sentence. This is another sentence'
 
 str_view_all(x, boundary('word'))</code></pre>
-<div id="htmlwidget-dfe3b5d7ed088e3f1c71" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dfe3b5d7ed088e3f1c71">{"x":{"html":"<ul>\n  <li><span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>a<\/span> <span class='match'>sentence<\/span>. <span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>another<\/span> <span class='match'>sentence<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ae5267359a0660f2ad0e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ae5267359a0660f2ad0e">{"x":{"html":"<ul>\n  <li><span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>a<\/span> <span class='match'>sentence<\/span>. <span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>another<\/span> <span class='match'>sentence<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_split(x, ' ')[[1]]</code></pre>
 <pre><code>## [1] &quot;This&quot;      &quot;is&quot;        &quot;a&quot;         &quot;sentence.&quot; &quot;This&quot;      &quot;is&quot;       
 ## [7] &quot;another&quot;   &quot;sentence&quot;</code></pre>
@@ -2962,11 +2962,11 @@ str_view_all(x, boundary('word'))</code></pre>
 <pre class="r"><code>bananas &lt;- c(&quot;banana&quot;, &quot;Banana&quot;, &quot;BANANA&quot;)
 
 str_view(bananas, 'banana')</code></pre>
-<div id="htmlwidget-3fc680f5bc3c735fbceb" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3fc680f5bc3c735fbceb">{"x":{"html":"<ul>\n  <li><span class='match'>banana<\/span><\/li>\n  <li>Banana<\/li>\n  <li>BANANA<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c823ccc38762375e953c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c823ccc38762375e953c">{"x":{"html":"<ul>\n  <li><span class='match'>banana<\/span><\/li>\n  <li>Banana<\/li>\n  <li>BANANA<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>str_view(bananas, regex('banana', ignore_case = TRUE))</code></pre>
-<div id="htmlwidget-e91e8c6cd909c446bed4" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e91e8c6cd909c446bed4">{"x":{"html":"<ul>\n  <li><span class='match'>banana<\/span><\/li>\n  <li><span class='match'>Banana<\/span><\/li>\n  <li><span class='match'>BANANA<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b4bee0d55ab47228973f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b4bee0d55ab47228973f">{"x":{"html":"<ul>\n  <li><span class='match'>banana<\/span><\/li>\n  <li><span class='match'>Banana<\/span><\/li>\n  <li><span class='match'>BANANA<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="other-types-of-patterns" class="section level1">
 <h1>Other types of patterns</h1>
@@ -3022,23 +3022,7 @@ time
 fixed
 </td>
 <td style="text-align:right;">
-239690
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-regex
-</td>
-<td style="text-align:right;">
-324475
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-regex
-</td>
-<td style="text-align:right;">
-248435
+249803
 </td>
 </tr>
 <tr>
@@ -3046,7 +3030,7 @@ regex
 fixed
 </td>
 <td style="text-align:right;">
-76879
+62184
 </td>
 </tr>
 <tr>
@@ -3054,7 +3038,7 @@ fixed
 regex
 </td>
 <td style="text-align:right;">
-245446
+318125
 </td>
 </tr>
 <tr>
@@ -3062,7 +3046,23 @@ regex
 regex
 </td>
 <td style="text-align:right;">
-243164
+258351
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regex
+</td>
+<td style="text-align:right;">
+246267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fixed
+</td>
+<td style="text-align:right;">
+83604
 </td>
 </tr>
 </tbody>
@@ -3097,8 +3097,8 @@ i</code></pre>
 <pre class="r"><code>x &lt;- 'This is a sentence'
 
 str_view_all(x, boundary('word'))</code></pre>
-<p><div id="htmlwidget-2c3b067ac0a6d125501b" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2c3b067ac0a6d125501b">{"x":{"html":"<ul>\n  <li><span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>a<\/span> <span class='match'>sentence<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script> # Other uses of regex</p>
+<p><div id="htmlwidget-9b7a9ccb33b8648c95f1" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9b7a9ccb33b8648c95f1">{"x":{"html":"<ul>\n  <li><span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>a<\/span> <span class='match'>sentence<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script> # Other uses of regex</p>
 <ul>
 <li><code>apropos()</code> seaches all objects from the global environment.</li>
 </ul>

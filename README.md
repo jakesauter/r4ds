@@ -9,7 +9,7 @@ chapers of this book at the following links.
 
 [Data Wrangling](http://htmlpreview.github.io/?https://github.com/jakesauter/r4ds/tree/master/R/wrangle.html)
 
-[Relational Data](http://htmlpreview.github.io/?https://github.com/jakesauter/r4ds/tree/master/R/relational_data.html)
+[Relational Data](http://htmlpreview.github.io/?https://github.com/jakesauter/r4ds/blob/master/R/relational_data.html)
 
 [Exploratory Data Analysis](http://htmlpreview.github.io/?https://github.com/jakesauter/r4ds/tree/master/R/EDA.html)
 

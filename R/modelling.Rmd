@@ -8,11 +8,34 @@ output:
     df_print: kable 
 ---
 
-```{r global-setup, include=FALSE}
-knitr::opts_chunk$set(cache=FALSE, 
-                      message=FALSE, 
-                      warning=FALSE)
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE, 
+  warning = FALSE, 
+  message = FALSE,
+  hold = TRUE)
+
+library(knitr)
+library(kableExtra)
+
+kable <- function(data, ...) {
+  knitr::kable(data, digits=3, ...) %>% 
+    kable_styling(bootstrap_options = c('striped', 
+                                        'hover', 
+                                        'responsive'),
+                  full_width = FALSE, 
+                  position = 'center', )
+}
+
+knit_print.data.frame <- function(x, ...) {
+  res <- paste(c('', '', kable(head(x))), collapse = '\n')
+  asis_output(res)
+}
+
+registerS3method('knit_print', 'data.frame', knit_print.data.frame)
 ```
+
+# Modelling
 
 ```{r libraries}
 library(tidyverse)
@@ -89,6 +112,8 @@ ggplot(models, aes(a1, a2)) +
 ```
 
 
+## Grid Search
+
 So it seems like the parameters are all in a similiar neighborhood
 in the parameter space, lets try to grid search this space 
 to get a more optimal model
@@ -120,6 +145,8 @@ ggplot(sim1, aes(x, y)) +
 Much better! One can see how if we iterated on this idea that we would soon fine
 the line of best fit. Fortunately we do not have to implement this ourselves as it 
 is implemented multiple ways across R. 
+
+## Model Optimization
 
 We can provide `stats::optim()` an initial parameter value as well as a loss function 
 and some data in order for it to search the parameter space in an intelligent way 

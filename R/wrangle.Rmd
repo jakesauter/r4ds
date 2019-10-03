@@ -18,6 +18,33 @@ some better printing characteristics and easier formation practices.
 library(tidyverse)
 ```
 
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(
+  cache = FALSE, 
+  warning = FALSE, 
+  message = FALSE,
+  hold = TRUE)
+
+library(knitr)
+library(kableExtra)
+
+kable <- function(data, ...) {
+  knitr::kable(data, digits=3, ...) %>% 
+    kable_styling(bootstrap_options = c('striped', 
+                                        'hover', 
+                                        'responsive'),
+                  full_width = FALSE, 
+                  position = 'center', )
+}
+
+knit_print.data.frame <- function(x, ...) {
+  res <- paste(c('', '', kable(head(x))), collapse = '\n')
+  asis_output(res)
+}
+
+registerS3method('knit_print', 'data.frame', knit_print.data.frame)
+```
+
 ```{r as_tibble}
 as_tibble(iris)
 ```

@@ -1,6 +1,6 @@
 # R for Data Science 
 
-[R for Data Science book work through](https://r4ds.had.co.nz/)
+[R for Data Science](https://r4ds.had.co.nz/)  book work through
 
 Please view the html versions or my **Rmarkdown** reports following various
 chapers of this book at the following links. 

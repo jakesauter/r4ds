@@ -1,3 +1,3 @@
 # R for Data Science 
 
-[R for Data Science book work through]{https://r4ds.had.co.nz/}
+[https://r4ds.had.co.nz/]{R for Data Science book work through}

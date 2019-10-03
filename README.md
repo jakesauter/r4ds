@@ -5,7 +5,7 @@
 Please view the html versions or my **Rmarkdown** reports following various
 chapers of this book at the following links. 
 
-[Strings](http://htmlpreview.github.io/?https://github.com/jakesauter/r4ds/tree/master/R/strings.html)
+[Strings](https://htmlpreview.github.io/?https://github.com/jakesauter/r4ds/blob/master/R/strings.html)
 
 [Data Wrangling](http://htmlpreview.github.io/?https://github.com/jakesauter/r4ds/tree/master/R/wrangle.html)
 

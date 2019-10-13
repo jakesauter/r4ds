@@ -215,6 +215,110 @@ WHERE col LIKE pattern;
             and are atleast 3 characters in length
 'a%o' -- start with a and end with o
 
+# SQL Server Wildcards
+
+% -- 0 or more characters
+_ -- a single character
+[] -- any single character within the brackets
+^ -- represents any character not in the brackets
+        [^oa]
+- -- a range of characters 
+
+# IN Operator 
+
+SELECT col_name(s)
+FROM table_name
+WHERE col_name IN (val1, val2, ...); 
+
+SELECT col_name(s) 
+FROM table_name
+WHERE col_name IN 
+(
+  SELECT ...
+)
+
+ex: 
+
+SELECT * 
+FROM Customers
+WHERE COUNTRY
+IN ('Germany', 'France', 'UK'); 
+
+SELECT * 
+FROM Customers
+WHERE COUNTRY
+NOT IN ('Germany', 'France', 'UK'); 
+
+# This means that we can select from 
+# other tables as well! 
+
+SELECT  * 
+FROM Customers
+WHERE Country 
+3IN (
+  SELECT Country 
+  FROM Suppliers 
+);
+
+# Between 
+
+SELECT col_name(s)
+FROM table_name 
+WHERE col_name 
+BETWEEn val1 AND val2; 
+
+SELECT * FROM Products
+WHERE Price BETWEEN 10 and 20; 
+
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 and 20; 
+
+
+# Between with In 
+
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20
+AND NOT Category IN (1,2,3); 
+
+# Between text vales -- alphabetic order  
+
+SELECT * FROM Products
+WHERE ProductName BETWEEN 'Carnarvon Tigers' 
+AND 'Mozzarella diGiovanni'
+ORDER BY ProductName; 
+
+# This is like saying between C and M, though
+# with more specificity
+
+# Between Dates
+
+SELECT * FROM Orders
+WHERE OrderDate
+BETWEEN #01/07/1996# 
+AND     #31/07/1996#;
+
+OR 
+
+SELECT * FROM Orders
+WHERE OrderDate 
+BETWEEN '1996-07-01' 
+AND     '1006-07-31'; 
+
+# AS
+
+#Alias column_name
+SELECT col_name 
+AS alias_name
+FROM table_name; 
+
+# Alias table_name
+SELECT col_name(s) 
+FROM table_name AS alias_name; 
+
+Select CustomerID AS ID,
+CustomerName AS Customer
+FROM Customers 
+
 
 
 

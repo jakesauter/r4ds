@@ -1,0 +1,246 @@
+# Most basic selection
+
+SELECT * FROM CUSTOMERS;
+
+# Selecting different (distinct) values
+
+SELECT DISTINCT Country FROM Customers;
+
+# WHERE
+
+SELECT col1, col2, ... 
+FROM table_name 
+WHERE condition; 
+
+SELECT * 
+FROM customers
+WHERE Country='Mexico'; 
+
+# SQL requires single quotes areound text values
+# However numeric fields should not be enclosed in 
+# quotes
+
+SELECT * 
+FROM Customers
+WHERE CustomerID=1; 
+
+# Operators available in where
+
+-, <, <=, >, >-, <> (not equal, sometimes !=), 
+BETWEEN (in a range), LIKE (regex search pattern), 
+IN (specify multiple values)
+
+SELECT col1, col2, ...
+FROM table_name
+WHERE condition1 OR/AND condition2 ...; 
+
+SELECT col1, col2, 
+FROM table_name 
+WHERE NOT condition; 
+
+
+SELECT * 
+FROM Customers
+WHERE City='Berlin' OR City='New York'; 
+
+SELECT * 
+FROM Customers
+WHERE NOT Country='Germany'; 
+
+SELECT *
+FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA'; 
+
+# Order by 
+
+SELECT col1, col2 
+FROM table_name
+ORDER BY col1, col2, ... ASC|DESC; 
+
+SELECT * 
+FROM Customers 
+ORDER BY Country; 
+
+SELECT *
+FROM Customers
+ORDER BY Country DESC; 
+
+# This statement will order by country, 
+# and if multiple rows have the same country, 
+# those entries will be ordered by CustomerName
+
+SELECT *
+FROM Customers
+ORDER BY Country, CustomerName; 
+
+SELECT *
+FROM Customers
+ORDER BY Country ASC, Customer DESC; 
+
+# Insert into 
+
+INSERT INTO table_name (col1, col2, ...)
+VALUES (val1, val2, val3)
+
+# If we are inserting values into 
+# every column of the table then we
+# do not need to specify column names
+
+INSERT INTO table_name
+VALUES (val1, val2, ...)
+
+# NULLs 
+
+SELECT col_names
+FROM table_name
+WHERE col_name IS NULL; 
+
+SELECT col_names
+FROM table_name
+WHERE  col_name IS NOT NULL; 
+
+SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NULL; 
+
+SELECT CustomerName, ContactName, Address
+FROM Customer
+WHERE Address IS NOT NULL; 
+
+# UPDATE 
+
+UPDATE table_name
+SET col1 = va1, col2 = val2, ...
+WHERE  condition; 
+
+UPDATE Customers
+SET ContactName = 'Alfred', City = 'Kansas City'
+WHERE CustomerID = 1; 
+
+UPDATE Customers
+SET ContactName = 'Juan'
+WHERE Country = 'Mexico'; 
+
+# Or we can update all records
+# by not providing a condition
+
+UPDATE Customers
+SET ContactName='Juan'; 
+
+SELECT col_names
+FROM table_name
+WHERE condition; 
+
+UPDATE table_name 
+SET col1=val1, col2=val2, ...
+WHERE condition; 
+
+# DELETE 
+
+DELETE
+FROM table_name
+WHERE condition; 
+
+DELETE 
+FROM Customers 
+WHERE CustomerName = 'Alfred'; 
+
+# Delete all records
+
+DELETE FROM table_name; 
+
+# SELECT TOP 
+
+# SQL SERVER / MS Access
+SELECT 
+TOP number|percent col_name(s)
+FROM table_names
+WHERE condition; 
+
+# MySQL / SQLite
+SELECT col_name(s)
+FROM tablename
+WHERE condition
+LIMIT number; 
+
+# Oracle
+SELECT col_name(s)
+FROM table_name
+WHERE ROWNUM <= number; 
+
+
+# MIN and MAX 
+
+SELECT MIN(col_name)
+FROM table_name 
+WHERE condition; 
+
+SELECT MAX(col_name) 
+FROM table_name
+WHERE condition; 
+
+SELECT MIN(Price)
+AS SmallestPrice
+FROM Products; 
+
+SELECT MAX(Price) 
+AS LargestPrice
+FROM Products; 
+
+# COUNT, AVG, SUM
+
+SELECT COUNT(col_name)
+FROM table_name
+WHERE condition;
+
+SELECT AVG(col_name)
+FROM table_name
+WHERE condition; 
+
+SELECT SUM(col_name)
+FROM table_name
+WHERE condition; 
+
+# LIKE
+
+SELECT col1, col2, ...
+FROM table_name 
+WHERE col LIKE pattern; 
+
+'a%' -- starts with a
+'%a' -- ends with a
+'%a%' -- a in any position 
+'_a%' -- a in the second position 
+'a___%' -- finds any values that start with a
+            and are atleast 3 characters in length
+'a%o' -- start with a and end with o
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

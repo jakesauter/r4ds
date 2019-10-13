@@ -179,6 +179,179 @@ best$par
 ```
 
 
+# Visualizing Models
+
+We can start by generating a grid of data for our model to process.
+
+```{r}
+grid <- sim1 %>% 
+  data_grid(x)
+
+grid
+```
+
+Now we can add predictions to this grid easily using the `modelr::add_predictions()` function. 
+
+```{r}
+grid <- grid %>% 
+  add_predictions(sim1_mod)
+
+grid
+```
+
+Now we can visualize these predictions. Keep in mind that this method will work for many different
+model types in R unlike our simple `geom_abline()` implementation from earlier. 
+
+```{r}
+ggplot(sim1, aes(x)) + 
+  geom_point(aes(y = y)) + 
+  geom_line(aes(y = pred), data = grid, color = 'red', size = 1)
+```
+
+
+# Residuals 
+
+Adding residuals from our model to the original dataset is also very easy using 
+`modelr::add_residuals()`
+
+```{r}
+sim1 <- sim1 %>% 
+  add_residuals(sim1_mod)
+
+sim1
+```
+
+
+We can draw a frequecy polygram to see the distributions of residuals
+
+```{r}
+ggplot(sim1, aes(resid)) + 
+  geom_freqpoly(binwidth = 0.5)
+```
+
+```{r}
+ggplot(sim1, aes(x, resid)) + 
+  geom_ref_line(h = 0) + 
+  geom_point()
+```
+
+
+`modelr` provides the great `geom_ref_line()` geom so that we can see a plot of our 
+residuals vs our data as is usually done in statistical model analysis. Here we see uniform
+variance of our residuals, which can also be put as **homoscedasticity** of our residuals. 
+
+# Formuals and Model Families 
+
+Lets see how `modelr` works under the hood with `model_matrix()`. Here we see 
+that `modelr` converts our formula to a data frame with each column being a model 
+parameter. Note that this is not unique to `modelr` as `modelr::model_matrix()` is a 
+thin wrapper around `stats::model.matrix()`.
+
+```{r}
+df <- tribble(
+  ~y, ~x1, ~x2, 
+   4,  2,  5, 
+   5,  1,  6
+)
+
+model_matrix(df,y ~ x1)
+```
+
+By default an intercept will always be added, though we can bypass this functionality 
+with the following formulation. 
+
+```{r}
+model_matrix(df, y ~ x1 - 1)
+```
+
+```{r}
+model_matrix(df, y ~ x1 + x2)
+```
+
+This formula notation is sometimes called “Wilkinson-Rogers notation”, and was initially described in Symbolic Description of Factorial Models for Analysis of Variance, by G. N. Wilkinson and C. E. Rogers. 
+
+
+# Categorical Variables
+
+```{r}
+df <- tribble(
+ ~sex, ~response, 
+ 'male', 1, 
+ 'female', 2, 
+ 'male', 1
+)
+
+model_matrix(df, response ~ sex)
+```
+ 
+
+Notice that we only have a `sexmale` category as `sexfemale` is perfectly predictable from 
+the inverse of this column. 
+
+```{r}
+ggplot(sim2) + 
+  geom_point(aes(x, y))
+```
+
+Lets fit a model to this data and generate predictions. 
+
+```{r}
+model2 <- lm(y ~ x, data = sim2) 
+
+grid <- sim2 %>% 
+  data_grid(x) %>% 
+  add_predictions(model2)
+
+grid
+```
+
+Notice how the model predicts the mean of each category as it minimizes the rms distance. 
+
+```{r}
+ggplot(sim2, aes(x)) + 
+  geom_point(aes(y = y)) + 
+  geom_point(data = grid, aes(y = pred), color = 'red', size = 4)
+```
+
+We can't make predictions about levels that we didn't observe during training/model fitting. 
+
+```{r, warning=TRUE}
+tibble(x = 'e') %>% 
+  add_predictions(mod2)
+```
+
+# Interactions (continuous and categorical)
+
+The `modelr::sim3` dataset contains a categorical predictor and a continuous predictor. Lets
+see how to handle data like this 
+
+```{r}
+ggplot(sim3, aes(x1, y)) + 
+  geom_point(aes(color = x2))
+```
+
+
+Two possible models that can fit this data are: 
+
+```{r}
+mod1 <- lm(y ~ x1 + x2, data = sim3)
+mod2 <- lm(y ~ x1 * x2, data = sim3)
+```
+
+When variables are added with `+`, the model estimates each effect independent of all others. However
+it is possible 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
